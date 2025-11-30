@@ -1,38 +1,38 @@
 // Створіть об'єкт "bankAccount" з властивостями "ownerName", "accountNumber", "balance". Додайте до об'єкту метод "deposit", який дозволяє додавати гроші на рахунок, та метод "withdraw", який дозволяє знімати гроші з рахунку. Використайте cofirm() щоб поповнити рахунок або отримати готівку та prompt() щоб дізнатися сумму. Після проведення операції виводити повідомлення про залишок на рахунку.
 
-const bankAccount = {
-  ownerName: "Lina",
-  accountNumber: "5832021835449",
-  balance: 200,
-  deposit(cash) {
-    this.balance += cash;
-    alert(`На рахунку ${this.balance} грн`);
-  },
-  withdraw(cash) {
-    if (cash > this.balance) {
-      alert("Недостатньо грошей");
-      return;
-    }
-    this.balance -= cash;
-    alert(`На рахунку ${this.balance} грн`);
-  },
-};
+// const bankAccount = {
+//   ownerName: "Lina",
+//   accountNumber: "5832021835449",
+//   balance: 200,
+//   deposit(cash) {
+//     this.balance += cash;
+//     alert(`На рахунку ${this.balance} грн`);
+//   },
+//   withdraw(cash) {
+//     if (cash > this.balance) {
+//       alert("Недостатньо грошей");
+//       return;
+//     }
+//     this.balance -= cash;
+//     alert(`На рахунку ${this.balance} грн`);
+//   },
+// };
 
-if (confirm("Ви хочете поповнити рахунок?")) {
-  const money = Number(prompt("Введіть суму для поповнення"));
-  if (money > 0 && !isNaN(money)) {
-    bankAccount.deposit(money);
-  } else {
-    alert("Невірна сума!");
-  }
-} else if (confirm("Ви хочете зняти гроші?")) {
-  const money = Number(prompt("Введіть суму для зняття"));
-  if (money > 0 && !isNaN(money)) {
-    bankAccount.withdraw(money);
-  } else {
-    alert("Невірна сума!");
-  }
-}
+// if (confirm("Ви хочете поповнити рахунок?")) {
+//   const money = Number(prompt("Введіть суму для поповнення"));
+//   if (money > 0 && !isNaN(money)) {
+//     bankAccount.deposit(money);
+//   } else {
+//     alert("Невірна сума!");
+//   }
+// } else if (confirm("Ви хочете зняти гроші?")) {
+//   const money = Number(prompt("Введіть суму для зняття"));
+//   if (money > 0 && !isNaN(money)) {
+//     bankAccount.withdraw(money);
+//   } else {
+//     alert("Невірна сума!");
+//   }
+// }
 
 
 
@@ -96,7 +96,7 @@ if (confirm("Ви хочете поповнити рахунок?")) {
 //   withdraw(amount) {
 //     if(amount > this.balance){
 //         alert("Недостатньо коштів для зняття")
-//         return 
+//         return
 //     }
 //     this.balance -= amount
 //     const transaction = this.createTransaction(amount,Transaction.WITHDRAW)
@@ -202,7 +202,7 @@ if (confirm("Ви хочете поповнити рахунок?")) {
 //   withdraw(amount) {
 //     if(amount > this.balance){
 //         alert("Недостатньо коштів для зняття")
-//         return 
+//         return
 //     }
 //     this.balance -= amount
 //     const transaction = this.createTransaction(amount,Transaction.WITHDRAW)
@@ -273,3 +273,94 @@ if (confirm("Ви хочете поповнити рахунок?")) {
 
 // const transactionDetails = account.getTransactionDetails(5)
 // console.log(`Деталі по транзакції`,transactionDetails);
+
+
+// Створіть об'єкт "bankAccount" з властивостями "ownerName", "accountNumber", "balance". Додайте до об'єкту метод "deposit", який дозволяє додавати гроші на рахунок, та метод "withdraw", який дозволяє знімати гроші з рахунку. Використайте cofirm() щоб поповнити рахунок або отримати готівку та prompt() щоб дізнатися сумму. Після проведення операції виводити повідомлення про залишок на рахунку.
+
+const bankAccount = {
+  ownerName: "Ivan",
+  accountNumber: "123456789",
+  balance: 1000,
+
+  deposit(amount) {
+    this.balance += amount;
+    alert('На рахунку зараз: ' + this.balance)
+  },
+
+  withdraw(amount) {
+    if (amount > this.balance) {
+      alert("Недостатньо грошей");
+    } else {
+      this.balance -= amount;
+      alert("На рахунку зараз: " + this.balance);
+    }
+  }
+}
+
+if (confirm("Поповнити рахунок?")) {
+  const sum = Number(prompt("Введіть суму поповнення"));
+  bankAccount.deposit(sum)
+} else if (confirm("Зняти гроші?")) {
+  const sum = Number(prompt("Введіть суму для зняття"));
+  bankAccount.withdraw(sum)
+}
+
+// Створіть об'єкт "weather" з властивостями "temperature", "humidity", "windSpeed". Додайте до об'єкту метод, який повертає "true", якщо температура нижче 0 градусів Цельсія, та "false", якщо температура вище або рівна 0 градусів Цельсія. Температуру потрібно отримати з prompt(). Якщо метод повернув "true" вивести повідомлення “температура нижче 0 градусів Цельсія” і навпаки
+
+const weather = {
+  temperature: 0,
+  humidity: 40,
+  windSpeed: 5,
+
+  isBelowZero() {
+    return this.temperature < 0;
+  },
+};
+
+weather.temperature = Number(prompt("Введіть температуру"));
+
+if (weather.isBelowZero()) {
+  console.log("температура нижче 0 градусів Цельсія");
+} else {
+  console.log("температура вище або рівна 0 градусів Цельсія");
+}
+
+// Створіть об’єкт "user", який буде мати властивості "name", "email", "password". Додайте метод "login", який буде перевіряти правильність введеного email та password.
+
+const user = {
+  name: "Oleh",
+  email: "test@gmailt.com",
+  password: "12345",
+
+  login(inputEmail, inputPassword) {
+    return inputEmail === this.email && inputPassword === this.password;
+  },
+};
+
+const inputEmail = prompt("Введіть email");
+const inputPassword = prompt("Введіть пароль");
+
+if (user.login(inputEmail, inputPassword)) {
+  console.log("Успішний вхід");
+} else {
+  console.log("Невірний email або пароль");
+}
+
+// Створіть об'єкт "movie" з властивостями "title", "director", "year", "rating". Додайте до об'єкту метод, який повертає "true", якщо рейтинг фільму вище 8, та "false", якщо рейтинг фільму 8 або нижче. Вивести значення властивостей в консоль.
+
+const movie = {
+  title: "Test",
+  director: "Bob",
+  year: 2010,
+  rating: 9,
+
+  isHighRated() {
+    return this.rating > 8;
+  },
+};
+
+console.log(movie.title);
+console.log(movie.director);
+console.log(movie.year);
+console.log(movie.rating);
+console.log("Рейтинг вище 8:", movie.isHighRated());
